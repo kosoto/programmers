@@ -7,8 +7,8 @@ public class TreasureMap {
 				 answer[i] = "";
 				 int temp = (arr1[i] | arr2[i]);
 				 for(int j=0;j<n;j++) {
-					 answer[i] = ((temp % 2 ==0)?" ":"#")+answer[i];
-					 temp = temp / 2;
+					 answer[i] = ((temp % 2 ==0)?" ":"#") + answer[i];
+					 temp /= 2;
 				 }				
 			 }
 			 return answer;
