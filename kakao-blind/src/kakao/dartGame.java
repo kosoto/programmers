@@ -22,7 +22,7 @@ public class dartGame {
 					score[i-1] *= 2;
 					if(i != 1) score[i-2] *= 2;
 				}else score[i-1] *= -1;
-			} 
+			}  
 		}
 		for(int j=0; j<3;j++) {
 			answer += score[j];
