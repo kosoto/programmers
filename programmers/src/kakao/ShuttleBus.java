@@ -1,7 +1,7 @@
 package kakao;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 
 public class ShuttleBus {
 	public static String solution(int n, int t, int m, String[] timetable) {
@@ -12,18 +12,8 @@ public class ShuttleBus {
 	                    Integer.parseInt(s.split(":")[1]));
 	        }
 
-	        // 내림차순으로 정렬하기
-	        list.sort(new Comparator<Integer>() {
-	            @Override
-	            public int compare(Integer o1, Integer o2) {
-	                int flag = 0;
-	                if(o1<o2)
-	                    flag = -1;
-	                else if(o1>o2)
-	                    flag = 1;	                
-	                return flag;
-	            }
-	        });
+	        // 오름차순으로 정렬하기
+	        Collections.sort(list);	        
 	        
 	        int busTime = 540;
 	        for(int i=0;i<n-1;i++){ //셔틀 운행 횟수 -1
