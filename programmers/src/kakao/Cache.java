@@ -9,6 +9,28 @@ import java.util.Random;
 
 public class Cache {
 	public static int solution(int cacheSize, String[] cities) {
+	      if(cacheSize == 0) return cities.length *5;
+	      int answer = 0;
+	        String city = "";
+	        ArrayList<String> cache = new ArrayList<>();
+	        for(int i=0;i<cities.length;i++){
+	            city = cities[i].toLowerCase();
+	            if(cache.contains(city)){
+	                cache.remove(city);
+
+	                answer += 1;
+	            }else{
+	                if(cache.size() == cacheSize){
+	                    cache.remove(0);
+	                }
+	                answer += 5;
+	            }
+	            cache.add(city);
+	        }
+	        return answer;
+	}
+	// 테스트 통과 못 함 이유 모름..
+	public static int solution_Map(int cacheSize, String[] cities) {
 		if(cacheSize ==0) return cities.length*5;
 		int answer = 0, count;
         String city,temp,temp2;
@@ -38,20 +60,10 @@ public class Cache {
                  cache.put(c,cache.get(c)+1);
              }
              cache.put(city,0);
-             System.out.println(city);
-             System.out.println(cache);
         }
         return answer;
 	}
 	public static void main(String[] args) {
-		/*int cacheSize = 2;
-		String[] cities = {"Jeju", "Pangyo", "NewYork", "newyork"};
-*/		
-		//int cacheSize = 3;
-		//String[] cities = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
-		
-		/*int cacheSize = 5;
-		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};*/
 		
 		List<String> list = new ArrayList<>();
 		Random rnd =new Random();
